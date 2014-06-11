@@ -177,7 +177,7 @@ void Trie::printFirstN(const int n){
     std::list<std::string>::iterator itr = mLCWStack.begin();
     int i = 0;
     for( ; itr != mLCWStack.end() && i < n ; ++itr, ++i) {
-      printString(*itr);
+      std::cout << std::string(*itr) << std::endl;
     }
   }else {
     for_each(mLCWStack.begin(), mLCWStack.end(), printString);
