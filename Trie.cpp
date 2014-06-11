@@ -171,7 +171,7 @@ string Trie::findLongestComposite(){
 }
 
 void Trie::printFirstN(const int n){
-  std::cout << std::endl <<"Printing Top : " << n  << " elements " << std::endl;
+  // std::cout << std::endl <<"Printing Top : " << n  << " elements " << std::endl;
 
   if( n < mLCWStack.size() ) {
     std::list<std::string>::iterator itr = mLCWStack.begin();
