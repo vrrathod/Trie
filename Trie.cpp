@@ -72,7 +72,7 @@ return bRet;
 }
 
 void Trie::generatePrefixes(Node *node, string currentWord){
-  
+
   std::vector<Node*> children = node->getChildren();
 
   bool validWord  = false;
@@ -139,7 +139,7 @@ void Trie::validateMatchForPrefix(const std::string targetString, const std::str
   }
 }
 
-string Trie::findLongestComposite(){
+void Trie::findLongestComposite(){
   mLCWStack.clear();
 
   // find all prefix matches
@@ -166,9 +166,8 @@ string Trie::findLongestComposite(){
   mLCWStack.sort();
   mLCWStack.unique();
   mLCWStack.sort( sortDescending );
-  
-  return "";
 }
+
 
 void Trie::printFirstN(const int n){
   // std::cout << std::endl <<"Printing Top : " << n  << " elements " << std::endl;
@@ -176,12 +175,45 @@ void Trie::printFirstN(const int n){
   std::cout << " Number of composite words " << mLCWStack.size() << std::endl;
 
   if( n < mLCWStack.size() ) {
+    std::cout << " First " << n << " words are : " << std::endl;
     std::list<std::string>::iterator itr = mLCWStack.begin();
     int i = 0;
     for( ; itr != mLCWStack.end() && i < n ; ++itr, ++i) {
-      std::cout << std::string(*itr) << std::endl;
+      printString( *itr ) ;
     }
   }else {
+    std::cout << " First " << mLCWStack.size() << " words are : " << std::endl;
     for_each(mLCWStack.begin(), mLCWStack.end(), printString);
   }
+}
+
+/** printResults, prints results as expected. The output is in following format.
+    Longest Composite Word: <word>
+    Second Longest Word   : <word>
+    Total word count      : <count>
+
+    @param None
+ */
+ void Trie::printResults() {
+
+  std::list<std::string>::iterator itr = mLCWStack.begin();
+  
+  if( mLCWStack.end() == itr) {
+    std::cout << " There are no composite words in the list." << std::endl;
+    return ;
+  }
+
+  std::cout << "Longest Composite Word \t\t: " << *itr << std::endl;
+
+  // next
+  itr++;
+
+  if( mLCWStack.end() == itr) {
+    std::cout << " There is only one composite word in the list." << std::endl;
+    return;
+  }
+
+  std::cout << "Second Longest Composite Word \t: " << *itr << std::endl;
+
+  std::cout << "Total number of Composite Words : " << mLCWStack.size() << std::endl;  
 }

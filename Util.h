@@ -64,9 +64,8 @@ static inline void printString( std::string s ) {
 // print help 
 inline void printHelp( const std::string progName ){
   std::cout << "Usage : " << progName << std::endl;
-  std::cout << " " << progName <<" <filePath> [topN] " << std::endl;
+  std::cout << " " << progName <<" <filePath> " << std::endl;
   std::cout << "  <filePath> is path to file containing sorted list of words all small case" << std::endl;
-  std::cout << "  [topN] is optional, specifies number of composite-strings to be printed." << std::endl;
   std::cout << std::endl;
 }
 #endif // __UTIL_H__

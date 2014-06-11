@@ -19,13 +19,6 @@ int main( int argc, char** argv ){
   } 
   // make sure file name exists
   string path = argv[1];
-
-  // topN
-  int nCount = 1;
-  if( argc >= 3 ){
-    nCount = atoi( argv[2] );
-  } 
-
   
 #ifdef _MEASURE_PERFORMANCE_
   ProcessCounter p ("main");
@@ -60,7 +53,7 @@ int main( int argc, char** argv ){
     ProcessCounter(" finding top n ");
 #endif //_MEASURE_PERFORMANCE_
     
-    trie->printFirstN(nCount);
+    trie->printResults();
     
 #ifdef _MEASURE_PERFORMANCE_
   }

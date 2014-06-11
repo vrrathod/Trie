@@ -6,6 +6,9 @@
 #ifndef __NODE_H__
 #define __NODE_H__
 
+/**
+ * The data structure to hold data at each node in trie.
+ */
 class Node
 {
   // store each character
